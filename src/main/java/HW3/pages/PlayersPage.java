@@ -72,6 +72,10 @@ public class PlayersPage {
         searchInput.click();
     }
 
+    public List<WebElement> selectPlayersFromSearchResult(){
+        return driver.findElements(By.xpath(".//div[@id='datagrid_table__723a925886']/table[@class='datagrid_table']/*/tr"));
+    }
+
     public List<WebElement> selectPlayersFromSearchResult(PokerPlayer player){
         return driver.findElements(By.xpath(".//a[.='" + player.getUsername() + "']"));
     }

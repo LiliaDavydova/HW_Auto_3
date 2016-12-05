@@ -22,7 +22,6 @@ public class LoginTests {
     /**
      * Preconditions:
      * 1. Open FireFox browser
-     * 2.  Open application Login Page URL = "http://80.92.229.236:81/auth/login
      */
     @BeforeTest
     public void beforeTest() {
@@ -33,8 +32,8 @@ public class LoginTests {
     }
 
     /**
-     * Steps to reproduce:
-     * 1.
+     * Preconditions:
+     * 1.  Open application Login Page URL = "http://80.92.229.236:81/auth/login
      */
     @BeforeMethod
     public void beforeMethod() {
@@ -49,7 +48,6 @@ public class LoginTests {
      * 3. Click on "Log In" button
      * 4. Verify that title of the page equals to "Players"
      */
-
     @Test
     public void positiveTest() {
         loginPage.setUsername("admin");
@@ -65,9 +63,8 @@ public class LoginTests {
      * 2. Set "12345" to Password
      * 3. Click on "Log In" button
      * 4. Verify that title of the page equals to "Login"
-     * 5. Verify that "Validation error message is not valid." message should be displayed
+     * 5. Verify that "Validation error message is not valid." message is displayed
      */
-
     @Test
     public void negativeTestWrongPasssord() {
         loginPage.setUsername("admin");
@@ -87,9 +84,8 @@ public class LoginTests {
      * 2. Set "123" to Password
      * 3. Click on "Log In" button
      * 4. Verify that title of the page equals to "Login"
-     * 5. Verify that "Validation error message is not valid." message should be displayed
+     * 5. Verify that "Validation error message is not valid." message is displayed
      */
-
     @Test
     public void negativeTestWrongLogin() {
         loginPage.setUsername("administrator");
@@ -109,9 +105,8 @@ public class LoginTests {
      * 2. Password is blank
      * 3. Click on "Log In" button
      * 4. Verify that title of the page equals to "Login"
-     * 5. Verify that "Validation error message is not valid." message should be displayed
+     * 5. Verify that "Validation error message is not valid." message is displayed
      */
-
     @Test
     public void negativeTestEmptyFields() {
         loginPage.setUsername("");
@@ -129,7 +124,6 @@ public class LoginTests {
      * Postconditions:
      * 1. Close FireFox browser
      */
-
     @AfterTest
     public void afterTest() {
         driver.quit();

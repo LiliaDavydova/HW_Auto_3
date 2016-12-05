@@ -62,66 +62,63 @@ public class SearchTest {
     /**
      * Steps to reproduce:
      * 1. Search player by username
-     * 2. Verify that message should be displayed
+     * 2. Verify that player was found
      */
     @Test
     public void searchPlayerByUsernameTest() {
         playersPage.searchPlayerByUsername(player);
         List<WebElement> players = playersPage.selectPlayersFromSearchResult(player);
         Assert.assertFalse(players.isEmpty(), "Player is NOT found by username");
-        Assert.assertEquals(1, players.size(), "More than one player is found");
+        Assert.assertEquals(1, players.size(), "More than one player was found");
     }
 
     /**
      * Steps to reproduce:
      * 1. Search player by email
-     * 2. Verify that message should be displayed
+     * 2. Verify that player was found
      */
     @Test
-    public void searchPlayerByEmail() {
+    public void searchPlayerByEmailTest() {
         playersPage.searchPlayerByEmail(player);
         List<WebElement> players = playersPage.selectPlayersFromSearchResult(player);
         Assert.assertFalse(players.isEmpty(), "Player is NOT found by email");
-        Assert.assertEquals(1, players.size(), "More than one player is found");
+        Assert.assertEquals(1, players.size(), "More than one player was found");
     }
 
     /**
      * Steps to reproduce:
      * 1. Search player by first name
-     * 2. Verify that message should be displayed
+     * 2. Verify that player was found
      */
     @Test
-    public void searchPlayerByFirstName() {
+    public void searchPlayerByFirstNameTest() {
         playersPage.searchPlayerByFirstName(player);
-        List<WebElement> players = playersPage.selectPlayersFromSearchResult(player);
+        List<WebElement> players = playersPage.selectPlayersFromSearchResult();
         Assert.assertFalse(players.isEmpty(), "Player is NOT found by first name");
-        Assert.assertEquals(1, players.size(), "More than one player is found");
     }
 
     /**
      * Steps to reproduce:
      * 1. Search player by last name
-     * 2. Verify that message should be displayed
+     * 2. Verify that player was found
      */
     @Test
-    public void searchPlayerByLastName() {
+    public void searchPlayerByLastNameTest() {
         playersPage.searchPlayerByLastName(player);
-        List<WebElement> players = playersPage.selectPlayersFromSearchResult(player);
+        List<WebElement> players = playersPage.selectPlayersFromSearchResult();
         Assert.assertFalse(players.isEmpty(), "Player is NOT found by last name");
-        Assert.assertEquals(1, players.size(), "More than one player is found");
     }
 
     /**
      * Steps to reproduce:
      * 1. Search player by city
-     * 2. Verify that message should be displayed
+     * 2. Verify that player was found
      */
     @Test
-    public void searchPlayerByCity() {
+    public void searchPlayerByCityTest() {
         playersPage.searchPlayerByCity(player);
-        List<WebElement> players = playersPage.selectPlayersFromSearchResult(player);
+        List<WebElement> players = playersPage.selectPlayersFromSearchResult();
         Assert.assertFalse(players.isEmpty(), "Player is NOT found by city");
-        Assert.assertEquals(1, players.size(), "More than one player is found");
     }
 
     /**

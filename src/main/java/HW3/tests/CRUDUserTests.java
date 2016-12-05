@@ -69,7 +69,7 @@ public class CRUDUserTests {
      * 2. Set new username to Username
      * 3. Set new email to E-mail
      * 4. Set new password to Password
-     * 5. Set confirm new password to Confirm Password
+     * 5. Set the same password to Confirm Password
      * 6. Set new first name to First Name
      * 7. Set new last name to Last Name
      * 8. Set city to City
@@ -93,6 +93,9 @@ public class CRUDUserTests {
         String expectedTitle = "Players";
         Assert.assertEquals(actualTitle, expectedTitle, "Wrong title after save Player");
         playersPage.searchPlayerByUsername(player);
+        List<WebElement> players = playersPage.selectPlayersFromSearchResult(player);
+        Assert.assertFalse(players.isEmpty(), "Player is NOT found");
+        Assert.assertEquals(1, players.size(), "More than one player is found");
         playersPage.clickEdit(player);
         PokerPlayer actualPlayer = editPlayerPage.getPlayerFromEditForm();
         Assert.assertEquals(actualPlayer.getEmail(), player.getEmail(), "Wrong Email for created player");
@@ -107,11 +110,11 @@ public class CRUDUserTests {
      * Steps to reproduce:
      * 1. Click on "Insert"
      * 2. Click on "Save" button (don't enter any value)
-     * 3. Verify that title of the page equals to "Players - Insert
-     * 4. Verify that "Error message for empty username is absent." message should be displayed
-     * 5. Verify that "Error message for empty email is absent." message should be displayed
-     * 6. Verify that "Error message for empty password is absent." message should be displayed
-     * 7. Verify that "Error message for empty confirm password is absent." message should be displayed
+     * 3. Verify that title of the page equals to "Players - Insert"
+     * 4. Verify that "Error message for empty username is absent." message is displayed
+     * 5. Verify that "Error message for empty email is absent." message is displayed
+     * 6. Verify that "Error message for empty password is absent." message is displayed
+     * 7. Verify that "Error message for empty confirm password is absent." message is displayed
      */
     @Test
     public void createEmptyPlayerNegativeTest() {
@@ -124,7 +127,6 @@ public class CRUDUserTests {
         Assert.assertTrue(errorMessage.contains("E-mail: Value is required and can't be empty"), "Error message for empty email is absent.");
         Assert.assertTrue(errorMessage.contains("Password: Value is required and can't be empty"), "Error message for empty password is absent.");
         Assert.assertTrue(errorMessage.contains("Confirm Password: Value is required and can't be empty"), "Error message for empty confirm password is absent.");
-        System.out.println(editPlayerPage.getErrorMessage());
     }
 
     /**
@@ -140,7 +142,7 @@ public class CRUDUserTests {
      * 9. Set valid address to Address
      * 10. Set valid phone to Phone
      * 11. Click on "Save" button
-     * 12. Verify that title of the page equals to "Players - Insert
+     * 12. Verify that title of the page equals to "Players - Insert"
      * 13. Verify that message about invalid email is displayed
      */
     @Test
