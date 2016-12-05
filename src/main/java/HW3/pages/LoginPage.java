@@ -15,27 +15,27 @@ public class LoginPage {
     public static final String URL = "http://80.92.229.236:81/auth/login";
     public static final String INVALID_CREDENTIALS_ERROR_MSG = "Invalid username or password";
     public static final String EMPTY_CREDENTIALS_ERROR_MSG = "Value is required and can't be empty";
-    private WebDriver driver; // страница должна хранить в себе объект драйвера
+    private WebDriver driver;
 
     public LoginPage(WebDriver driver) {
-        this.driver = driver; // связь между внешней ссылкой на драйвер
+        this.driver = driver;
     }
 
     public void open(WebDriver driver) {
-        driver.get(URL); // Open Poker
+        driver.get(URL);
     }
 
-    public void setUsername(String username) { // мы можем задать username
-        driver.findElement(By.id("username")).clear(); // очистить поле
-        driver.findElement(By.id("username")).sendKeys(username);//задать значение
+    public void setUsername(String username) {
+        driver.findElement(By.id("username")).clear();
+        driver.findElement(By.id("username")).sendKeys(username);
     }
 
-    public void setPassword(String password) { // мы можем задать username
-        driver.findElement(By.id("password")).clear(); // очистить поле
-        driver.findElement(By.id("password")).sendKeys(password);//задать значение
+    public void setPassword(String password) {
+        driver.findElement(By.id("password")).clear();
+        driver.findElement(By.id("password")).sendKeys(password);
     }
 
-    public void clickLogin() { // мы можем задать кликнуть на кнопку Login
+    public void clickLogin() {
         driver.findElement(By.id("logIn")).click();
     }
 
@@ -43,12 +43,4 @@ public class LoginPage {
         WebElement errorMsgElement = driver.findElement(By.xpath("//ul[@class='errors']/li"));
         return errorMsgElement.getText();
     }
-
-/*    public void WaitForCondition() {
-
-        Wait wait = new WebDriverWait(driver. 10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
-
-        //toBeClipable
-    }*/
 }
